@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="//db.onlinewebfonts.com/c/959f53f573bc5ee71117e312bd886f42?family=Artegra+Sans+Extended+SC+W15" rel="stylesheet" type="text/css" />
-                
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
@@ -30,15 +30,27 @@
     <header class="banner">
         <div class="container">
             <h1 class="banner__title"><span class="banner__title__word">Espresso</span> Yourself</h1>
-            <div class="banner__clip">
-                <div class="banner__clip__circle"></div>
-                <div class="banner__clip__inner">
-                    <div class="banner__slider">
-                        <div class="banner__slide">
-                            <img class="banner__slide__image" src="./assets/images/products/product-1.webp" alt="product" loading="lazy">
+            <div class="banner__grid">
+                <div class="banner__grid__top banner__grid__top--left">
+                    <p class="banner__text">Pure coffee, pure community, pure experience, because you can never have too much coffee in your life</p>
+                </div>
+                <div class="banner__clip">
+                    <div class="banner__clip__circle"></div>
+                    <div class="banner__clip__inner">
+                        <div class="banner__slider">
+                            <div class="banner__slide">
+                                <img class="banner__slide__image" src="./assets/images/products/product-1.webp" alt="product" loading="lazy">
+                            </div>
+                            <div class="banner__slide">
+                                <img class="banner__slide__image" src="./assets/images/products/product-2.webp" alt="product" loading="lazy">
+                            </div>
+                            <div class="banner__slide">
+                                <img class="banner__slide__image" src="./assets/images/products/product-3.webp" alt="product" loading="lazy">
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="banner__grid__top banner__grid__top--right" data-banner-slider-nav></div>
             </div>
         </div>
         <div class="marquee banner__marquee banner__marquee--back">
@@ -59,6 +71,8 @@
         </div>
     </header>
 
-    <script src="./assets/js/script.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="./assets/js/script.js"></script>
 </body>
 </html>

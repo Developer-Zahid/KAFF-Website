@@ -79,6 +79,10 @@ button:not(:disabled){
     text-transform: uppercase;
 }
 
+p{
+    @extend %ff-secondary;
+}
+
 /* Buttons Style */
 .btn{
     @extend %clr-primary;
@@ -190,7 +194,7 @@ button:not(:disabled){
         bottom: 0;
         left: 0;
         right: 0;
-        height: 15rem;
+        height: 30rem;
         @media (min-width: 992px){
             height: 25rem;
         }
@@ -232,6 +236,7 @@ button:not(:disabled){
             aspect-ratio: 1;
             border-radius: 100%;
             background-color: rgba($color: #000000, $alpha: 0.16);
+            box-shadow: inset 0 0 10px rgba($color: #000000, $alpha: 0.07);
             z-index: -1;
         }
 
@@ -249,11 +254,18 @@ button:not(:disabled){
 
     &__slide{
         &__image{
+            filter: drop-shadow(0 15px 10px rgba($color: #000000, $alpha: 0.02));
             max-height: clamp(35rem, 55vw, 75rem);
             @media (min-width: 768px) {
                 max-height: clamp(40rem, 55vw, 75rem);
             }
             margin-inline: auto;
+            transform: translateY(100%);
+            transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        &.slick-active .banner__slide__image{
+            transform: translateY(0);
         }
     }
 
@@ -261,22 +273,96 @@ button:not(:disabled){
         position: absolute;
         left: -10px;
         right: -10px;
+        user-select: none;
+        pointer-events: none;
+        outline: 1px solid transparent;
         
         &--back{
             background-color: var(--clr-accent--dark);
             z-index: -1;
-
-            transform: translateY(-18rem) rotate(-8deg);
-            @media (min-width: 992px) {
-                transform: translateY(-30rem) rotate(-4deg);
+            transform: translateY(-30rem) rotate(-5deg);
+            @media (min-width: 768px) and (max-width: 992px) {
+                transform: translateY(-35rem) rotate(-5deg);
             }
         }
 
         &--front{
-            transform: translateY(-18rem) rotate(4deg);
-            @media (min-width: 992px) {
-                transform: translateY(-30rem) rotate(4deg);
+            transform: translateY(-30rem) rotate(4deg);
+            @media (min-width: 768px) and (max-width: 992px) {
+                transform: translateY(-35rem) rotate(4deg);
             }
         }
     }
+
+    &__grid{
+        position: relative;
+
+        &__top{
+            @media (min-width: 992px){
+                position: absolute;
+                z-index: 1;
+            }
+            @media (max-width: 991.98px){
+                margin-block-start: 2rem;
+            }
+            @media (min-width: 1200px) {
+                top: 0;
+                margin-block-start: 20rem;
+            }
+            @media (max-width: 1199.98px) {
+                bottom: 0;
+            }
+
+            &--left{
+                max-width: 20ch;
+                @extend %clr-secondary;
+                @media (max-width: 1199.98px) {
+                    color: var(--clr-primary);
+                }
+                @media (max-width: 991.98px) {
+                    display: none;
+                }
+            }
+
+            &--right{
+                right: 0;
+            }
+        }
+    }
+
+    &__text{
+        font-size: 1.4rem;
+    }
+
+    .slick-dots {
+        display: flex;
+        @media (max-width: 991.98px){
+            justify-content: center;
+        }
+        list-style-type: none;
+        gap: 2rem;
+
+        &__btn{
+            position: relative;
+            display: inline-flex;
+            align-items: flex-end;
+            justify-content: center;
+            width: 8.5rem;
+            aspect-ratio: 1;
+            border: 0;
+            border-radius: 50%;
+            background-color: rgba($color: #000000, $alpha: 0.4);
+            box-shadow: 0 0 0 0.3rem rgba($color: #000000, $alpha: 0.1);
+            overflow: hidden;
+
+            &__image{
+                transition: transform .6s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+        }
+
+        li:not(.slick-active) .slick-dots__btn__image{
+            transform: translateY(25%);
+        }
+    }
+
 }
