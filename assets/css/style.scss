@@ -34,6 +34,7 @@ body{
 img{
     display: block;
     max-width: 100%;
+    user-select: none;
 }
 
 a,
@@ -204,6 +205,7 @@ p{
 
     &__title{
         --max-font-size: 15rem;
+        position: relative;
         @extend %clr-secondary;
         @extend %uppercase;
         text-align: center;
@@ -212,6 +214,16 @@ p{
 
         &__word{
             display: block;
+        }
+
+        &__image{
+            position: absolute;
+            left: 20%;
+            transform: translateY(-22%);
+
+            @media (max-width: 991.98px) {
+                display: none;
+            }
         }
     }
 
@@ -307,7 +319,7 @@ p{
             }
             @media (min-width: 1200px) {
                 top: 0;
-                margin-block-start: 20rem;
+                margin-block-start: 10rem;
             }
             @media (max-width: 1199.98px) {
                 bottom: 0;
@@ -316,6 +328,9 @@ p{
             &--left{
                 max-width: 20ch;
                 @extend %clr-secondary;
+                @media (min-width: 1200px) {
+                    margin-block-start: 12em;
+                }
                 @media (max-width: 1199.98px) {
                     color: var(--clr-primary);
                 }
@@ -326,6 +341,15 @@ p{
 
             &--right{
                 right: 0;
+            }
+
+            &__image{
+                margin-inline: auto;
+                margin-block-end: 2rem;
+
+                @media (max-width: 1199.98px){
+                    display: none;
+                }
             }
         }
     }
